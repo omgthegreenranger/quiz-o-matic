@@ -15,12 +15,16 @@ let losses = '';
 let timeClock = document.getElementById('timer');
 let timeLeft = 10;
 
+// let enterScore = document.querySelector(".high-score");
 let startButton = document.querySelector("#start-button");
 
 function init() {
-    localStorage.clear();
+    localStorage.setItem("wins", '');
+    localStorage.setItem("losses", '');
+    localStorage.setItem("questions", '');
+    // scoresFetch();
     questFetch();
-}
+};
 
 // when you hit the Start Game button.
 function getGoing() {
@@ -83,9 +87,20 @@ function renderQuestion() {
     } else {
         // go to High Score.
         highScore();
-    }
+    };
 
 };
+
+// High Scores
+
+function highScore() {
+    if (questNum > 9) {
+        enterScore.setAttribute("style","visibility: visible;");
+    };
+};
+
+// render High Scores
+
 
 // Calculate the Score Board
 function getScores() {
@@ -113,25 +128,27 @@ function scoreChoice() {
         questNum++;
         getScores();
         renderQuestion();
+        console.log(questNum);
     } else {
         console.log("Failure!");
         losses++
         localStorage.setItem("losses", losses);
-        questNum++;
+        console.log(questNum);
+        document.querySelector("#" + choiceTarget).setAttribute("style","background: red");
         getScores();
         //Set chosen answer to disappear, and reduce time
     };
+};
+
+function highScore() {
+    document.querySelector(".high-score").setAttribute("style","visibility: visible");
+
 }
-
-function wrongChoice() {
-
-
-}
-
 
 document.getElementById("choices").addEventListener("click", function(choice) {
     if(choice.target && choice.target.nodeName == "LI") {
         console.log("List item ", choice.target.id.replace("choice-", ""), " was clicked!");
+        choiceTarget = choice.target.id;
         choiceMade = +choice.target.id.replace("choice-","");
         scoreChoice();
     }
