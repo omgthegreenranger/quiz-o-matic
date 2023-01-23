@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-self: center;
+}
+
+
+main {
+    display: flex;
+}
+
+.scoreboard {
+    display: flex;
+    flex-flow: column nowrap;
+    border: 3px solid blue;
+}
+.arena {
+    border: 3px solid blue;
+    width: fit-content;
+}
+
+.questionbox {
+    display: flex;
+    flex-flow: column nowrap;
+    border: 2px dashed green;
+
+}
+
+.choicebox {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    border: 2px dashed red;
+    width: fit-content;
+}
+
+#choices {
+    list-style: none;
+    text-decoration: none;
+}
+
+.topscores {
+    border: 3px solid purple;
+}
