@@ -13,37 +13,43 @@
         <button id="start-button">Start Game</button>
     </header>
     <main>
-        <section class="scoreboard">
-            <p>Scoreboard box</p>
-            <p id="wins">Wins</p>
-            <p id="losses">Losses</p>
-            <p id="timer"></p>
+        <section class="playgame">
+            <section class="scoreboard">
+                <p>Scoreboard box</p>
+                <p id="wins">Wins</p>
+                <p id="losses">Losses</p>
+                <p id="timer"></p>
+            </section>
+            <section class="arena">
+                <section class="questionbox">
+                    <p id="question">Question box</p>
+                </section>
+                <section class="choicebox">
+                    <ul id="choices">
+                        <li id="choice-0" class="select">Choice 1</li>
+                        <li id="choice-1" class="select">Choice 2</li>
+                        <li id="choice-2" class="select">Choice 3</li> 
+                        <li id="choice-3" class="select">Choice 4</li>
+                    </ul>
+                </section>
+            </section>
+            <section class="topscores">
+                <p>High Scores Box</p> 
+            </section>
         </section>
-        <section class="arena">
-            <section class="questionbox">
-                <p id="question">Question box</p>
-            </section>
-            <section class="choicebox">
-                <ul id="choices">
-                    <li id="choice-0">Choice 1</li>
-                    <li id="choice-1">Choice 2</li>
-                    <li id="choice-2">Choice 3</li> 
-                    <li id="choice-3">Choice 4</li>
-                </ul>
-            </section>
-            <section class="high-score">
+        <section class="result-box">
+            <h2 id="time-score"></h2>
+            <h2 id="question-score"></h2>
+            <div class="submission">
                 <input type="text" name="initials">
-                <submit name="scoreSubmit">Submit</submit>
-            </section>
+                <input type="submit" name="scoreSubmit">
+            </div>
         </section>
-        <section class="topscores">
-            <p>High Scores Box</p> 
-        </section>
-        
     </main>
     
     
     <footer></footer>
 </body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="./assets/js/scripts.js"></script>
 </html>
