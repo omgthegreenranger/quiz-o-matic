@@ -15,10 +15,9 @@
     <main>
         <section class="playgame">
             <section class="scoreboard">
-                <p>Scoreboard box</p>
                 <p id="wins">Wins</p>
                 <p id="losses">Losses</p>
-                <p id="timer"></p>
+                <p>Time Left: <span id="timer"></span></p>
             </section>
             <section class="arena">
                 <section class="questionbox">
@@ -33,16 +32,13 @@
                     </ul>
                 </section>
             </section>
-            <section class="topscores">
-                <p>High Scores Box</p> 
-            </section>
         </section>
         <section class="result-box">
             <h2 id="time-score"></h2>
             <h2 id="question-score"></h2>
             <div class="submission">
-                <input type="text" name="initials">
-                <input type="submit" name="scoreSubmit">
+                <input type="text" id="initials" name="initials">
+                <input type="submit" id="scoreSubmit" name="Submit">
             </div>
         </section>
     </main>

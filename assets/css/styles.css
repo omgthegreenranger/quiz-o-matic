@@ -24,16 +24,18 @@ main {
 
 .playgame {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     visibility: hidden;
-    width: 100%
+    width: 100%;
+    align-items: center;
 }
 
 .scoreboard {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
     border: 3px solid blue;
-    width:15%;
+    width:100%;
+    justify-content: center;
     /* visibility: hidden; */
 }
 .arena {

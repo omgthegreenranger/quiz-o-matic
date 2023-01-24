@@ -11,11 +11,17 @@ let choiceThree = document.querySelector("#choice-2");
 let choiceFour = document.querySelector("#choice-3");
 let timeResult = document.querySelector("#time-score");
 let scoreResult = document.querySelector("#question-score");
+let initials = document.querySelector("#initials");
 
 // scoreboard
 let choice = "";
 let wins = '';
 let losses = '';
+
+// high score variables
+let recordScore = [];
+let scoreSubmit = document.querySelector("#scoreSubmit");
+let scoreArray = JSON.parse(localStorage.getItem("Scores"));
 
 // timer data
 let timeClock = document.getElementById('timer');
@@ -24,6 +30,7 @@ let timeScore = '';
 
 let enterScore = document.querySelector(".result-box");
 let startButton = document.querySelector("#start-button");
+
 
 function init() {
     localStorage.setItem("wins", '');
@@ -163,7 +170,12 @@ function highScore() {
     timeResult.textContent = "You finished in " + timeScore + " seconds!";
     scoreResult.textContent = "Your score is " + wins + " correct and " + losses + " wrong!";
 
-    
+    scoreSubmit.addEventListener("click", function(scoring) {
+        recordScore = [["Initials",initials.value],["Wins",wins],["Losses",losses],["Time",timeScore]];
+        scoreArray.push(recordScore);
+        console.log(scoreArray);
+        localStorage.setItem("Scores", JSON.stringify(scoreArray));
+    })
 };
 
 startButton.addEventListener("click",getGoing);
