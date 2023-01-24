@@ -39,6 +39,10 @@ main {
     text-decoration: none;
 }
 
+.high-score {
+    visibility: hidden;
+}
+
 .topscores {
     border: 3px solid purple;
 }
