@@ -9,8 +9,7 @@
 </head>
 <body>
     <header>
-        <h1>Here is my header</h1>
-        <button id="start-button">Start Game</button>
+        <p>This game is magnificent!</p>
     </header>
     <main>
         <section class="playgame">
@@ -33,18 +32,33 @@
                 </section>
             </section>
         </section>
-        <section class="result-box">
-            <h2 id="time-score"></h2>
-            <h2 id="question-score"></h2>
-            <div class="submission">
-                <input type="text" id="initials" name="initials">
-                <input type="submit" id="scoreSubmit" name="Submit">
-            </div>
+        <section class="start-stop">
+            <section class="start-box">
+                <h2 id="welcome">Welcome to the Quiz-O-Matic</h2>
+                <p id="tag-line">Your exhilirating repository of quiz!</p>
+                <h2 id="instruct">Try to solve all ten questions before the time runs out, and compete with others.</h2>
+                <button id="start-button">Start Game</button>
+            </section>
+            <section class="result-box">
+                <div class="no-scores">
+                    <h2 id="time-score"></h2>
+                    <h2 id="question-score"></h2>
+                    <div class="submission">
+                        <input type="text" id="initials" name="initials">
+                        <input type="submit" id="scoreSubmit" name="Submit">
+                    </div>
+                </div>
+                <div class="topscores">
+                    <ul class="scoreList">
+                        
+                    </ul>
+                </div>
+            </section>
         </section>
     </main>
     
     
-    <footer></footer>
+    <footer><p>We have a lot of fun here, but please remember to spay and neuter your pets.</p></footer>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="./assets/js/scripts.js"></script>

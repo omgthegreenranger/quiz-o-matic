@@ -21,7 +21,8 @@ let losses = '';
 // high score variables
 let recordScore = [];
 let scoreSubmit = document.querySelector("#scoreSubmit");
-let scoreArray = JSON.parse(localStorage.getItem("Scores"));
+let scoreArray = localStorage.scores ? JSON.parse(localStorage.scores) : [];
+let scoreItem = document.querySelector("#scoreItem");
 
 // timer data
 let timeClock = document.getElementById('timer');
@@ -29,6 +30,7 @@ let timeLeft = 60;
 let timeScore = '';
 
 let enterScore = document.querySelector(".result-box");
+let startGame = document.querySelector(".start-box")
 let startButton = document.querySelector("#start-button");
 
 
@@ -38,7 +40,7 @@ function init() {
     localStorage.setItem("questions", '');
     scoresFetch();
     questFetch();
-};
+}
 
 // when you hit the Start Game button.
 function getGoing() {
@@ -47,22 +49,22 @@ function getGoing() {
     localStorage.setItem("losses", 0);
     getScores();
     document.querySelector(".playgame").setAttribute("style", "visibility: visible");
-    // document.querySelector(".topscores").setAttribute("style", "visibility: visible");
+    startGame.setAttribute("style", "visibility: hidden");
     // document.querySelector(".scoreboard").setAttribute("style", "visibility: visible");
     renderQuestion();
     countdownClock();
-};
+}
 
 // This gets the JSON of quetsions from the open Trivia DB
 function questFetch() {
     fetch('https://opentdb.com/api.php?amount=10&type=multiple')
     .then((response) => response.json())
     .then((list) => localStorage.setItem("questions", JSON.stringify(list.results)));
-};
+}
 
 function scoresFetch() {
-
-};
+    
+}
 
 // Timer increment
 function countdownClock() {
@@ -70,14 +72,12 @@ function countdownClock() {
         if (timeLeft > 0 && questNum < 10) {
             timeClock.textContent = timeLeft;
             timeLeft--;
-        } else if (timeLeft === 0) {
+        } else if (timeLeft < 1) {
             clearInterval(timeInterval);
             highScore();
         }
     }, 1000);
-};
-
-
+}
 
 // Turn question JSON in to Question objects
 function renderQuestion() {
@@ -104,16 +104,8 @@ function renderQuestion() {
         choiceTwo.textContent = choiceArray[1][0];
         choiceThree.textContent = choiceArray[2][0];
         choiceFour.textContent = choiceArray[3][0];
-        // choiceOne.setAttribute("class", "select");
-        // choiceTwo.setAttribute("class", "select");
-        // choiceThree.setAttribute("class", "select");
-        // choiceFour.setAttribute("class", "select");
-    // } else {
-    //     // go to High Score.
-    //     highScore();
-    // };
 
-};
+}
 
 
 // Calculate the Score Board
@@ -122,7 +114,7 @@ function getScores() {
     losses = localStorage.getItem("losses");
     document.querySelector("#wins").textContent = "Wins: " + wins;
     document.querySelector("#losses").textContent = "Losses: " + losses;
-};
+}
 
 // Determine Win or Loss
 
@@ -139,13 +131,12 @@ function scoreChoice() {
         console.log("Failure!");
         losses++
         localStorage.setItem("losses", losses);
-        // choiceTarget.setAttribute("class", "unselect");
+        timeLeft -= 6;
         questNum++;
         getScores();
         scoreCheck();
-        // Reduce Time
     };
-};
+}
 
 function scoreCheck() {
     console.log(questNum);
@@ -160,25 +151,34 @@ function scoreCheck() {
 
 
 function highScore() {
+    if (timeLeft < 1) timeLeft = 60;
     timeScore = 60 - timeLeft;
     console.log(timeScore);
     document.querySelector(".playgame").setAttribute("style","visibility: hidden;");
-    // document.querySelector(".questionbox").setAttribute("style", "visibility: hidden");
-    // document.querySelector(".choicebox").setAttribute("style", "visibility: hidden");
     enterScore.setAttribute("style","visibility: visible;");
     console.log("You finished in " + timeScore + " seconds!");
     timeResult.textContent = "You finished in " + timeScore + " seconds!";
     scoreResult.textContent = "Your score is " + wins + " correct and " + losses + " wrong!";
+    renderScore();
 
     scoreSubmit.addEventListener("click", function(scoring) {
-        recordScore = [["Initials",initials.value],["Wins",wins],["Losses",losses],["Time",timeScore]];
+        recordScore = [initials.value,wins,losses,timeScore];
         scoreArray.push(recordScore);
         console.log(scoreArray);
-        localStorage.setItem("Scores", JSON.stringify(scoreArray));
+        localStorage.setItem("scores", JSON.stringify(scoreArray));
+        renderScore();
     })
-};
+}
+function renderScore() {
+    document.querySelector('.scoreList').innerHTML = "";
+    scoreArray.forEach(player => {
+    document.querySelector('.scoreList').innerHTML += `<li id="scoreItem">Name: ${player[0]} Wins: ${player[1]} Losses: ${player[2]} Time: ${player[3]} seconds</li>`
+})};
+
+
 
 startButton.addEventListener("click",getGoing);
+
 // Event listener to monitor which choice the user makes - found at https://davidwalsh.name/event-delegate;
 document.getElementById("choices").addEventListener("click", function(choice) {
     if(choice.target && choice.target.nodeName == "LI") {
@@ -187,7 +187,7 @@ document.getElementById("choices").addEventListener("click", function(choice) {
         choiceMade = +choice.target.id.replace("choice-","");
         scoreChoice();
     }
-})
-;
-//event listeners
+});
+
+
 init();
