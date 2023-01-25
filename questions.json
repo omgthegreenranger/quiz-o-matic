@@ -1,125 +1,94 @@
 {
-    "response_code": 0,
     "results": [
         {
-            "category": "Politics",
-            "type": "multiple",
-            "difficulty": "medium",
-            "question": "Who was the British Prime Minister at the outbreak of the Second World War?",
-            "correct_answer": "Neville Chamberlain",
+            "question": "Commonly used data types DO NOT include:",
+            "correct_answer": "alerts",
             "incorrect_answers": [
-                "Clement Attlee",
-                "Winston Churchill",
-                "Stanley Baldwin"
+                "strings",
+                "booleans",
+                "numbers"
             ]
         },
         {
-            "category": "Entertainment: Board Games",
-            "type": "multiple",
-            "difficulty": "easy",
-            "question": "How many dice are used in the game of Yahtzee?",
-            "correct_answer": "Five",
+            "question": "The condition in an if-statement is enclosed within...",
+            "correct_answer": "parentheses",
             "incorrect_answers": [
-                "Four",
-                "Six",
-                "Eight"
+                "quotes",
+                "curly brackets",
+                "square brackets"
             ]
         },
         {
-            "category": "Entertainment: Film",
-            "type": "multiple",
-            "difficulty": "medium",
-            "question": "This movie contains the quote, &quot;I love the smell of napalm in the morning!&quot;",
-            "correct_answer": "Apocalypse Now",
+            "question": "Arrays in JavaScript can be used to store _____.",
+            "correct_answer": "All of the Above",
             "incorrect_answers": [
-                "Platoon",
-                "The Deer Hunter",
-                "Full Metal Jacket"
+                "Numbers and Strings",
+                "Other aarrays",
+                "booleans"
             ]
         },
         {
-            "category": "Entertainment: Books",
-            "type": "multiple",
-            "difficulty": "medium",
-            "question": "In the &quot;The Hobbit&quot;, who kills Smaug?",
-            "correct_answer": "Bard",
+            "question": "A very useful tool used during development and debugging for printing content to the console is:",
+            "correct_answer": "console.log()",
             "incorrect_answers": [
-                "Bilbo Baggins",
-                "Gandalf the Grey",
-                "Frodo"
+                "JavaScript",
+                "terminal",
+                "for-loops"
             ]
         },
         {
-            "category": "Entertainment: Video Games",
-            "type": "multiple",
-            "difficulty": "hard",
-            "question": "What device allows Tracer to manipulate her own time in the game &quot;Overwatch&quot;?",
-            "correct_answer": "Chronal Accelerator",
+            "question": "JQuery is the same thing as JQueryUI",
+            "correct_answer": "No, geez!",
             "incorrect_answers": [
-                "B.L.I.N.K",
-                "Spacial Displacement Manipulator",
-                "TMD (Time Manipulation Device)"
+                "Yes",
+                "Ask again later",
+                "What is JQuery?"
             ]
         },
         {
-            "category": "Entertainment: Video Games",
-            "type": "multiple",
-            "difficulty": "medium",
-            "question": "In the original DOOM games, which of the following demons is a recolor of the Baron of Hell, but is weaker than the Baron?",
-            "correct_answer": "Hell Knight",
+            "question": "Which software company developed JavaScript?",
+            "correct_answer": "Netscape",
             "incorrect_answers": [
-                "Mancubus",
-                "Pinky",
-                "Arch-Vile"
+                "Mozilla",
+                "Sun Microsystems",
+                "Oracle"
             ]
         },
         {
-            "category": "General Knowledge",
-            "type": "multiple",
-            "difficulty": "medium",
-            "question": "Where does water from Poland Spring water bottles come from?",
-            "correct_answer": "Maine, United States",
+            "question": "Look at the following selector: $(‘div’). What does it select?",
+            "correct_answer": "All div elements",
             "incorrect_answers": [
-                "Hesse, Germany",
-                "Masovia, Poland",
-                "Bavaria, Poland"
+                "The first div element",
+                "The last div element",
+                "Current div element"
             ]
         },
         {
-            "category": "Geography",
-            "type": "multiple",
-            "difficulty": "easy",
-            "question": "What is the largest country in the world?",
-            "correct_answer": "Russia",
+            "question": "How can a value be appended to an array?",
+            "correct_answer": "arr[arr.length]=value;",
             "incorrect_answers": [
-                "Canada",
-                "China",
-                "United States"
+                "arr(length).value;",
+                "arr[]=add(value);",
+                "None of these"
             ]
         },
         {
-            "category": "Celebrities",
-            "type": "multiple",
-            "difficulty": "hard",
-            "question": "Billy Herrington is from which US state?",
-            "correct_answer": "New York",
+            "question": "What will the code below output to the console? console.log(1 +  +‘2’ + ‘2’);",
+            "correct_answer": "console.log()",
             "incorrect_answers": [
-                "Arizona",
-                "California",
-                "Georgia"
+                "JavaScript",
+                "terminal",
+                "for-loops"
             ]
         },
         {
-            "category": "Entertainment: Video Games",
-            "type": "multiple",
-            "difficulty": "hard",
-            "question": "What Touhou Project character&#039;s first ever appearance was as a midboss in the eighth game, Imperishable Night?",
-            "correct_answer": "Tewi Inaba",
+            "question": "What will this output? var a = [1, 2, 3]; console.log(a[6]);",
+            "correct_answer": "undefined",
             "incorrect_answers": [
-                "Mystia Lorelei",
-                "Kaguya Houraisan",
-                "Rumia"
+                "0",
+                "prints nothing",
+                "Syntax error"
             ]
-        }
+        }        
     ]
 }

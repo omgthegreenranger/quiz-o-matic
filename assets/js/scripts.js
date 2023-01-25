@@ -13,7 +13,7 @@ let timeResult = document.querySelector("#time-score");
 let scoreResult = document.querySelector("#question-score");
 let initials = document.querySelector("#initials");
 
-// scoreboard
+// scoreboard variables
 let choice = "";
 let wins = '';
 let losses = '';
@@ -23,22 +23,23 @@ let recordScore = [];
 let scoreSubmit = document.querySelector("#scoreSubmit");
 let scoreArray = localStorage.scores ? JSON.parse(localStorage.scores) : [];
 let scoreItem = document.querySelector("#scoreItem");
+let scoreDelete = document.querySelector("#trash");
 
-// timer data
+// timer variables
 let timeClock = document.getElementById('timer');
 let timeLeft = 60;
 let timeScore = '';
 
+// init variables
 let enterScore = document.querySelector(".result-box");
-let startGame = document.querySelector(".start-box")
+let startedGame = document.querySelector(".start-box");
+let startGame = document.querySelector(".start-stop");
 let startButton = document.querySelector("#start-button");
 
 
 function init() {
     localStorage.setItem("wins", '');
     localStorage.setItem("losses", '');
-    localStorage.setItem("questions", '');
-    scoresFetch();
     questFetch();
 }
 
@@ -50,27 +51,23 @@ function getGoing() {
     getScores();
     document.querySelector(".playgame").setAttribute("style", "visibility: visible");
     startGame.setAttribute("style", "visibility: hidden");
-    // document.querySelector(".scoreboard").setAttribute("style", "visibility: visible");
+    startedGame.setAttribute("style", "visibility: hidden");
     renderQuestion();
     countdownClock();
 }
 
-// This gets the JSON of quetsions from the open Trivia DB
+// This gets the JSON of quetsions from the JSON file.
 function questFetch() {
-    fetch('https://opentdb.com/api.php?amount=10&type=multiple')
+    fetch('./questions.json')
     .then((response) => response.json())
     .then((list) => localStorage.setItem("questions", JSON.stringify(list.results)));
-}
-
-function scoresFetch() {
-    
 }
 
 // Timer increment
 function countdownClock() {
     let timeInterval = setInterval(function () {
         if (timeLeft > 0 && questNum < 10) {
-            timeClock.textContent = timeLeft;
+            timeClock.innerHTML = "Time Remaining" + `<br>` + `<span class="number">` + timeLeft + `</span>`;
             timeLeft--;
         } else if (timeLeft < 1) {
             clearInterval(timeInterval);
@@ -107,17 +104,15 @@ function renderQuestion() {
 
 }
 
-
 // Calculate the Score Board
 function getScores() {
     wins = localStorage.getItem("wins");
     losses = localStorage.getItem("losses");
-    document.querySelector("#wins").textContent = "Wins: " + wins;
-    document.querySelector("#losses").textContent = "Losses: " + losses;
+    document.querySelector("#wins").innerHTML = "Wins:" + `</br>` + `<span class="number">` + wins + `</span>`;
+    document.querySelector("#losses").innerHTML = "Losses:" + `</br>` + `<span class="number">` + losses + `</span>`; 
 }
 
 // Determine Win or Loss
-
 function scoreChoice() {
     scores = JSON.parse(localStorage.getItem("choiceList"));
     if(scores[choiceMade][1]) {
@@ -149,13 +144,18 @@ function scoreCheck() {
     };
 }
 
-
 function highScore() {
     if (timeLeft < 1) timeLeft = 60;
     timeScore = 60 - timeLeft;
     console.log(timeScore);
     document.querySelector(".playgame").setAttribute("style","visibility: hidden;");
     enterScore.setAttribute("style","visibility: visible;");
+    startGame.setAttribute("style", "visibility: visible");
+    if(timeScore == 0) {
+        document.querySelector("#completed").innerHTML = "Better Luck Next Time!";
+    } else if (timeScore > 0 ) {
+        document.querySelector("#completed").innerHTML = "Well done!";
+    };
     console.log("You finished in " + timeScore + " seconds!");
     timeResult.textContent = "You finished in " + timeScore + " seconds!";
     scoreResult.textContent = "Your score is " + wins + " correct and " + losses + " wrong!";
@@ -166,18 +166,28 @@ function highScore() {
         scoreArray.push(recordScore);
         console.log(scoreArray);
         localStorage.setItem("scores", JSON.stringify(scoreArray));
+        document.querySelector(".submission").innerHTML = '';
+        document.querySelector(".submission").innerHTML = `<p>Submitted!</p> <button class="btn" id="reset">Play Again?</button>`;
         renderScore();
+        document.querySelector("#reset").addEventListener("click", function(event) {
+            location.reload();
+        })
     })
 }
+
+
 function renderScore() {
     document.querySelector('.scoreList').innerHTML = "";
     scoreArray.forEach(player => {
-    document.querySelector('.scoreList').innerHTML += `<li id="scoreItem">Name: ${player[0]} Wins: ${player[1]} Losses: ${player[2]} Time: ${player[3]} seconds</li>`
-})};
-
-
+    document.querySelector('.scoreList').innerHTML += `<li class="scoreItem">Name: ${player[0]} Wins: ${player[1]} Losses: ${player[2]} Time: ${player[3]} seconds</li>`
+    })};
 
 startButton.addEventListener("click",getGoing);
+scoreDelete.addEventListener("click",function(event) {
+    localStorage.setItem("scores",[]);
+    renderScore();
+})
+
 
 // Event listener to monitor which choice the user makes - found at https://davidwalsh.name/event-delegate;
 document.getElementById("choices").addEventListener("click", function(choice) {
@@ -188,6 +198,5 @@ document.getElementById("choices").addEventListener("click", function(choice) {
         scoreChoice();
     }
 });
-
 
 init();

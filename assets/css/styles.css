@@ -1,9 +1,5 @@
-:root {
-    --box-color: teal;
-
-}
-
 body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
@@ -14,6 +10,14 @@ body {
     background: rgb(255,0,172);
     background: radial-gradient(circle, rgba(255,0,172,1) 0%, rgba(9,9,121,1) 54%, rgba(2,0,36,1) 100%);
 
+}
+
+.btn {
+    color: white;
+    background-color: rgb(255,0,172);
+    padding: 15px;
+    border-radius:20px;
+    font-size: xx-large;
 }
 
 header {
@@ -69,8 +73,35 @@ main {
     flex-flow: row nowrap;
     width:100%;
     justify-content: center;
+    background-color: rgba(255,0,172,0.1);
     /* visibility: hidden; */
 }
+
+#wins, #losses, #timer {
+    color:white;
+    font-weight: bolder;
+    align-self:center;
+    margin: 10px;
+    border: 3px outset black;
+    padding: 5px;
+    width: max-content;
+    background-color: rgba(10,10,10,0.4);
+    text-align: center;
+}
+
+#separator {
+    height: auto;
+    width: 3px;
+    background-color: black;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    
+}
+.number {
+    font-size:300%;
+    text-shadow: 0px 5px 10px blue;
+}
+
 .arena {
     display: flex;
     flex-flow: column nowrap;
@@ -79,19 +110,28 @@ main {
     width: 80%;
     height: 100%;
     align-items: center;
+    border-radius:65px;
+    background-color: rgba(0,0,0,0.3);
     /* visibility: hidden; */
 }
 
 .questionbox {
     display: flex;
     flex-flow: column nowrap;
-    background-color: teal;
+    background-color: rgba(0,128,128,0.3);
+    border: 3px solid teal;
     border-radius: 65px;
     padding: 5px;
     width: 100%;
     color: white;
     align-items: center;
+    justify-content:center;
     font-size: xxx-large;
+    height: 120px;
+}
+
+#question {
+    width:80%;
 }
 
 .choicebox {
@@ -114,7 +154,7 @@ main {
 
 .select {
     color: white;
-    border: 5px dashed green;
+    border: 5px dashed teal;
     background-color: blue;
 }
 
@@ -140,64 +180,59 @@ main {
     align-items: center;
     width: 50%;
     z-index: 0;
-
+    background-color: rgba(0,128,128,0.7);
+    border-radius: 50px;
+    border: 5px solid rgb(128, 128, 128);
 }
 .result-box {
     border-radius: 50px;
     display: flex;
     position:absolute;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     visibility: hidden;
     width: 100%;
     height: 100%;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    /* border: 3px dotted teal; */
-    /* background-color:darkcyan; */
     z-index: 0;
+}
+.scoreboxes {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    height: 65%;
+    width: 100%
+}
+
+.no-scores {
+    display: flex;
+    flex-direction: column;
+    height: 65%;
+    width:40%;
     
 }
 
-.result-box::backdrop { 
-    content: '';
-    border-radius: 50px;
-    border: 3px dotted teal;
-    display: block;
-    opacity: 0.5;
-    visibility: hidden;
-    height:100%;
-    width: 100%;
-    background-color:var(--box-color);
-    z-index: 1;
-    position:absolute;
+.submission {
+    padding: 10px;    
 }
 
+.inits {
+    font-size: x-large;
+    width: auto;
+    
+}
 .start-box {
     border-radius: 50px;
     display: flex;
     position:absolute;
     flex-flow: column nowrap;
     visibility: visible;
+    opacity:unset;
     width: 100%;
     height: 100%;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    /* backdrop-filter: ; */
-    z-index: 1;
-}
-
-.start-box::backdrop { 
-    content: '';
-    border-radius: 50px;
-    border 3px dotted teal;
-    display: block;   
-    opacity: 0.5;
-    height:100%;
-    width: 100%;
-    visibility: visible;
-    background-color:var(--box-color);
-    z-index: 0;
-    position:absolute;
 }
 
 #start-button{
@@ -208,14 +243,78 @@ main {
     width: 75%;
 
 }
-.noscores {
 
-
+.reset {
+    display: none;
 }
 
 .topscores {
-    display: table;
+    display: flex;
+    flex-flow: column nowrap;
     border: 3px solid purple;
     float: right;
     position:relative;
+    padding: 10px;
+    align-items: center;
+    width: 40%;
+}
+
+#high-score {
+    font-size: large;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bolder;
+    text-align:center;
+}
+
+.scoreList {
+    list-style-type: none;
+    padding: 10px;
+}
+
+.scoreItem:nth-child(even) {
+    background-color:rgba(211,211,211,0.5);
+}
+
+.scoreItem:nth-child(odd) {
+    background-color: rgba(2,0,15,0.2);
+}
+
+#trash {
+    width:30px;
+    height: auto;
+    fill: rgb(153, 5, 5);  
+}
+
+.title-block {
+    padding-bottom:10%;
+}
+
+#welcome {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size:xxx-large;
+    text-shadow: 0px 0px 15px red;
+    text-align: top;
+    margin-bottom:-10px;
+    color:white;
+}
+
+#tag-line {
+    color:white;
+    margin-top: 0;
+    text-align: right;
+}
+
+#completed {
+    font-size: xx-large;
+    margin-bottom: 25px;
+    font-weight: bolder;
+    color:rgb(255,0,172);
+    text-shadow: 0px 0px 3px black;
+}
+
+#time-score, #question-score {
+    font-weight: bold;
+    margin: 5px;
+    padding: 5px;
+    font-size: x-large;
 }
