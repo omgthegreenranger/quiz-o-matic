@@ -1,0 +1,94 @@
+{
+    "results": [
+        {
+            "question": "Commonly used data types DO NOT include:",
+            "correct_answer": "alerts",
+            "incorrect_answers": [
+                "strings",
+                "booleans",
+                "numbers"
+            ]
+        },
+        {
+            "question": "The condition in an if-statement is enclosed within...",
+            "correct_answer": "parentheses",
+            "incorrect_answers": [
+                "quotes",
+                "curly brackets",
+                "square brackets"
+            ]
+        },
+        {
+            "question": "Arrays in JavaScript can be used to store _____.",
+            "correct_answer": "All of the Above",
+            "incorrect_answers": [
+                "Numbers and Strings",
+                "Other aarrays",
+                "booleans"
+            ]
+        },
+        {
+            "question": "A very useful tool used during development and debugging for printing content to the console is:",
+            "correct_answer": "console.log()",
+            "incorrect_answers": [
+                "JavaScript",
+                "terminal",
+                "for-loops"
+            ]
+        },
+        {
+            "question": "JQuery is the same thing as JQueryUI",
+            "correct_answer": "No, geez!",
+            "incorrect_answers": [
+                "Yes",
+                "Ask again later",
+                "What is JQuery?"
+            ]
+        },
+        {
+            "question": "Which software company developed JavaScript?",
+            "correct_answer": "Netscape",
+            "incorrect_answers": [
+                "Mozilla",
+                "Sun Microsystems",
+                "Oracle"
+            ]
+        },
+        {
+            "question": "Look at the following selector: $(‘div’). What does it select?",
+            "correct_answer": "All div elements",
+            "incorrect_answers": [
+                "The first div element",
+                "The last div element",
+                "Current div element"
+            ]
+        },
+        {
+            "question": "How can a value be appended to an array?",
+            "correct_answer": "arr[arr.length]=value;",
+            "incorrect_answers": [
+                "arr(length).value;",
+                "arr[]=add(value);",
+                "None of these"
+            ]
+        },
+        {
+            "question": "What will the code below output to the console? console.log(1 +  +‘2’ + ‘2’);",
+            "correct_answer": "console.log()",
+            "incorrect_answers": [
+                "JavaScript",
+                "terminal",
+                "for-loops"
+            ]
+        },
+        {
+            "question": "What will this output? var a = [1, 2, 3]; console.log(a[6]);",
+            "correct_answer": "undefined",
+            "incorrect_answers": [
+                "0",
+                "prints nothing",
+                "Syntax error"
+            ]
+        }        
+    ]
+}

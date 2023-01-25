@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>Quiz-O-Matic - your exhilirating quiz page!</title>
+</head>
+<body>
+    <header>
+        <p>This game is magnificent!</p>
+    </header>
+    <main>
+        <section class="playgame">
+            <section class="scoreboard">
+                <span id="wins"></span>
+                <span id="losses"></span>
+                <div id="separator"></div>
+                <span id="timer"></span>
+            </section>
+            <section class="arena">
+                <section class="questionbox">
+                    <p id="question">Question box</p>
+                </section>
+                <section class="choicebox">
+                    <ul id="choices">
+                        <li id="choice-0" class="select">Choice 1</li>
+                        <li id="choice-1" class="select">Choice 2</li>
+                        <li id="choice-2" class="select">Choice 3</li> 
+                        <li id="choice-3" class="select">Choice 4</li>
+                    </ul>
+                </section>
+            </section>
+        </section>
+        <section class="start-stop">
+            <section class="start-box">
+                <section class="title-block">
+                    <h2 id="welcome">Welcome to the Quiz-O-Matic</h2>
+                    <p id="tag-line">Your exhilirating repository of quiz!</p>
+                </section>
+                <h2 id="instruct">Try to solve all ten questions before the time runs out, and compete with others.</h2>
+                <button class="btn" id="start-button">Start Game</button>
+            </section>
+            <section class="result-box">
+                <span id="completed"></span>
+                <div class="scoreboxes">
+                    <div class="no-scores">
+                        <span id="time-score"></span>
+                        <span id="question-score"></span>
+                        <div class="submission">
+                            <input type="text" class="inits" id="initials" name="initials" placeholder="Enter Initials here">
+                            <input type="submit" class="btn" id="scoreSubmit" name="Submit">
+                        </div>
+                    </div>
+
+                <div class="topscores">
+                    <span id="high-score">HIGH SCORES</span>
+                    <ul class="scoreList">
+                        
+                    </ul>
+                    <svg id="trash" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"/></svg>
+                </div>
+            </div>
+            </section>
+        </section>
+    </main>
+    
+    
+    <footer><p>We have a lot of fun here, but please remember to spay and neuter your pets.</p></footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="./assets/js/scripts.js"></script>
+</html>
